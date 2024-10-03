@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Q Developer</title>
+  <link href="https://fonts.cdnfonts.com/css/amazon-ember" rel="stylesheet">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/amazon-ember');
+  </style>
+  <style>
+    body {
+      font-family: 'Amazon Ember', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #fcfcfc;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      border: 1px solid rgb(78, 114, 195); 
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background-color: rgb(218, 240, 253);
+      border-bottom: 3px solid rgb(78, 114, 195); 
+    }
+    .logo {
+      height: 50px;
+      margin-right: 15px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+    .gradient-text {
+      font-family: 'Amazon Ember V2', sans-serif;
+      background-image: linear-gradient(to bottom right, rgb(82, 40, 180) 20%, rgb(66, 151, 251) 70%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    h1 .subtitle {
+      font-size: 0.7em;
+      font-weight: normal;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid rgb(78, 114, 195); 
+      padding: 12px;
+      text-align: left;
+      font-size: 1em;
+    }
+    th {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    .feature-wrapper {
+      white-space: nowrap;
+      display: inline-block;
+    }
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .feature-name {
+      font-weight: bold;
+      font-size: 17px;
+    }
+    .check {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+    .footnote {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: bold;
+      background: rgb(218, 240, 253);
+      border-top: 3px solid rgb(78, 114, 195); 
+    }
+    .footnote a {
+      padding: 20px;
+      width:100%;
+      height:100%;
+      display: block;
+      text-decoration: none;
+    }
+    .mono {
+      font-family: 'Amazon Ember Mono', sans-serif;
+    }
+    .mono-block {
+      font-family: 'Amazon Ember Mono', sans-serif;
+      padding: .5em;
+      background-color: rgb(11, 42, 54);
+      color: white;
+    }
+    .mono-block pre {
+      padding: 0px;
+    }
+    .message {
+      font-size: .8em;
+      padding: .8em;
+      padding-top: .1em;
+      padding-bottom: .1em;
+      border-radius: 1em;
+      background-color:  rgb(11, 42, 54);
+      color: white;
+    }
+    .wrap {
+      white-space: pre-wrap;
+    }
+    a.gradient-button {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      background-image: linear-gradient(to bottom right, rgb(82, 40, 180) 20%, rgb(66, 151, 251) 70%);
+      transition: transform 0.2s ease-in-out;
+      white-space: nowrap;
+    }
+    
+    a.gradient-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="img/q.png" alt="Amazon Q logo" class="logo">
+      <h1 class="gradient-text">Amazon Q Developer <span class="subtitle">(AI for software development)</span></h1>
+    </div>
+    <table>
+      <tr>
+        <th colspan="2"><span class="gradient-text">What does it do for you?</span></th>
+        <th><span class="gradient-text">To try it out...</span></th>
+        <th><span class="gradient-text">Web</span></th>
+        <th><span class="gradient-text">IDE</span></th>
+        <th><span class="gradient-text">CLI</span></th>
+      </tr>
+      <tr>
+        <td><div class="feature-wrapper"><img src="img/chat-bubble.svg" alt="Chat" class="feature-icon"> <span class="feature-name gradient-text">Chat</span></div></td>
+        <td>Learn new things, explain code, refactor code, generate new code snippets from scratch</td>
+        <td>Type a question, or select your code and right click, then Amazon Q ➜ Explain</td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+      </tr>
+      <tr>
+        <td><div class="feature-wrapper"><img src="img/question-mark.svg" alt="Explore" class="feature-icon"> <span class="feature-name gradient-text">Explore</span></div></td>
+        <td>Ask about your AWS resources, query and filter with natural language</td>
+        <td>Chat in AWS console, type "list/show my S3 buckets"</td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div class="feature-wrapper"><img src="img/light-bulb.svg" alt="Suggestions" class="feature-icon"> <span class="feature-name gradient-text">Suggestions</span></div></td>
+        <td>Smart suggestions pop up as you type, saving you time and effort</td>
+        <td>Just start typing in IDE or CLI, press tab to accept</td>
+        <td></td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+      </tr>
+      <tr>
+        <td><div class="feature-wrapper"><img src="img/robot-arm.svg" alt="Agent" class="feature-icon"> <span class="feature-name gradient-text">Agent</span></div></td>
+        <td>Describe a larger feature or major refactor to implement across multiple files, get a code diff back</td>
+        <td>Type <span class="mono">/dev</span> in chat, describe what you want to build</td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div class="feature-wrapper"><img src="img/magnifying-glass.svg" alt="Code Scans" class="feature-icon"> <span class="feature-name gradient-text">Code Scans</span></div></td>
+        <td>Automatically detect potential problems or vulnerabilities, explain or automatically fix them</td>
+        <td>Open IDE command palette, select "Amazon Q: Run Project Scan"</td>
+        <td></td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><div class="feature-wrapper"><img src="img/seed.svg" alt="Transformation" class="feature-icon"> <span class="feature-name gradient-text">Transformation</span></div></td>
+        <td>Automatically refactor entire projects between major language versions</td>
+        <td>Type <span class="mono">/transform</span> in chat</td>
+        <td><svg class="check" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9" fill="#32cd32" stroke="#2db82d" stroke-width="2"/><path d="M5 10 l3.5 3.5 l6.5 -6.5" stroke="white" stroke-width="2" fill="none"/></svg></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <div class="footnote">
+      <a href="https://profile.aws.amazon.com/">
+        <span class="gradient-text">Create an AWS Builder ID to try Amazon Q Developer in your IDE, at no cost, no credit card required</span>
+      </a>        
+    </div>
+  </div>
+  
+  <div class="container" style="margin-top: 3em;">
+    <div class="header">
+      <h1 class="gradient-text">Basic Chat <span class="subtitle">(Best practices for prompting)</span></h1>
+    </div>
+    <table>
+      <tr>
+        <th>
+          <span class="gradient-text">Goal</span>
+        </th>
+        <th>
+          <span class="gradient-text">Example Prompt Technique</span>
+        </th>
+        <th>
+          <span class="gradient-text">Example Output</span>
+        </th>
+      </tr>
+      <tr>
+        <td>Get a high level overview of a popular topic while avoiding biased content and marketing</td>
+        <td>
+          <span class="mono">What are the pros and cons of using React? Speak plainly, be concise, and avoid buzzwords</span>
+        </td>
+        <td>
+          <div class="message">
+            
+            <p>Here are some key pros and cons of using React, explained plainly and concisely:</p>
+          <p>Pros:</p>
+          <ul>
+            <li>Reusable components: Write code once, use it multiple times across your app.</li>
+            <li>Fast performance: Uses a virtual DOM for efficient updates.</li>
+            <li>Easy to learn basics: Simple core concepts make it accessible for beginners.</li>
+            <li>Large community: Lots of resources, libraries, and support available.</li>
+            <li>Flexible: Can be used with many other tools and libraries.</li>
+            <li>Mobile development: Skills transfer well to React Native for building mobile apps.</li>
+          </ul>
+          <p>Cons:</p>
+          <ul>
+            <li>Frequent updates: Keeping up with changes can be challenging.</li>
+            <li>JSX complexity: Mixing JavaScript and HTML can be confusing at first.</li>
+            <li>Lack of full framework features: Requires additional libraries for routing, state management, etc.</li>
+            <li>Steep learning curve for advanced concepts: While basics are easy, mastering React takes time.</li>
+            <li>Overkill for simple websites: Might be unnecessary for basic static pages.</li>
+          </ul>
+          <p>Overall, React is powerful for building complex, interactive web applications, but it may be more than needed for simpler projects.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Challenge statements by asking for the reverse viewpoint
+        </td>
+        <td>
+          After Q Developer responds to your previous ask, in the same chat try:
+          <span class="mono">Now explain the reverse viewpoint</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>Here's the reverse viewpoint on the pros and cons of using React:</p>
+<p>Cons:</p>
+<ul>
+  <li>Reusable components: Extra effort required to make truly reusable components across a large codebase.</li>
+  <li>Fast performance: Virtual DOM can be overkill for simple apps, adding unnecessary complexity.</li>
+  <li>Easy to learn basics: Basics are easy, but mastering React takes significant time and effort.</li>
+  <li>Large community: Too many options and opinions can be overwhelming, especially for beginners.</li>
+  <li>Flexible: With flexibility comes the need to make more decisions and integrate multiple libraries.</li>
+  <li>Mobile development: Separate skills required for React Native, adding to the learning curve.</li>
+</ul>
+<p>Pros:</p>
+<ul>
+  <li>Frequent updates: Keeps the library modern and addresses issues quickly.</li>
+  <li>JSX complexity: Allows clean separation of concerns between markup and logic.</li>
+  <li>Lack of full framework features: Allows you to choose the right tools for your specific needs.</li>
+  <li>Steep learning curve for advanced concepts: Encourages developers to deeply understand core concepts.</li>
+  <li>Overkill for simple websites: Robust enough to handle complex requirements if needed.</li>
+</ul>
+<p>From this viewpoint, the perceived cons of React can actually be seen as pros in certain situations. The flexibility and lack of opinionated solutions allow for more customization. The learning curve ensures developers truly understand the library. And while the basics are easy, mastering React is seen as a worthwhile investment for building robust and scalable applications.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Always dig deeper to make sure you haven't missed something</td>
+        <td>
+          <span class="mono">What else do I need to know?</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>Here are some additional important points to know about React:</p>
+            <ul>
+              <li>Virtual DOM: React uses a virtual DOM to optimize rendering, which improves performance for complex applications.</li>
+              
+              <li>One-way data flow: React follows a unidirectional data flow, which makes it easier to understand how data changes affect the application.</li>
+              
+              <li>React Native: You can use React to build mobile apps with React Native, sharing much of the codebase between web and mobile versions.</li>
+              
+              <li>State management: For larger applications, you might need additional libraries like Redux or MobX to manage application state effectively.</li>
+              
+              <li>Server-side rendering: React supports server-side rendering, which can improve initial load times and SEO.</li>
+              
+              <li>Hooks: Introduced in React 16.8, Hooks allow you to use state and other React features in functional components without writing classes.</li>
+              
+              <li>Component lifecycle: Understanding how React components mount, update, and unmount is crucial for building efficient applications.</li>
+              
+              <li>Testing: React's component-based architecture makes it relatively easy to test individual parts of your application.</li>
+              
+              <li>Build tools: Most React projects use build tools like webpack or Create React App to bundle and optimize the application.</li>
+              
+              <li>Ecosystem: React has a rich ecosystem of libraries and tools, but choosing the right ones for your project can be challenging.</li>
+            </ul>
+            
+            <p>Remember, while React is powerful and widely used, it's important to evaluate whether it's the right tool for your specific project needs.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Write justifications for a decision</td>
+        <td>
+          <span class="mono">I want to build an API server using Node.js and need to explain to coworkers why this is a good idea</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>Building an API server using Node.js is a great choice for several reasons:</p>
+            
+            <ul>
+              <li>Performance : Node.js is designed to handle a large number of concurrent connections with minimal overhead, making it ideal for building scalable and high-performance APIs.</li>
+              <li>Non-blocking I/O : Node.js uses an event-driven, non-blocking I/O model, which allows it to handle multiple requests concurrently without creating additional threads or processes, resulting in better resource utilization and scalability.</li>
+              <li>JavaScript Everywhere : Since Node.js uses JavaScript, you can write both the server-side and client-side code in the same language, making it easier for developers to share code and switch between front-end and back-end development.</li>
+              <li>Ecosystem and Packages : Node.js has a vast ecosystem of open-source packages and libraries available through npm (Node Package Manager), which can help you quickly build and integrate various features into your API server.</li>
+              <li>Real-time Applications : Node.js is well-suited for building real-time applications, such as chat servers, live-updating dashboards, and collaborative tools, due to its event-driven nature and support for WebSockets.</li>
+              <li>Microservices Architecture : Node.js is lightweight and modular, making it a popular choice for building microservices architectures, where different components of an application can be developed and deployed independently.</li>
+            </ul>
+            <p>While Node.js is an excellent choice for building APIs, it's important to note that it may not be the best fit for every use case, such as CPU-intensive tasks or applications that require long-running computations. In such cases, other technologies or programming languages might be more suitable.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Challenge an existing assumption</td>
+        <td>
+          <span class="mono">I want to build an API server using Rust. What might make me reconsider this choice?</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>While Rust is an excellent choice for building high-performance API servers, there are some factors you might want to consider before committing to it:</p>
+            
+            <ul>
+              <li>Learning curve: Rust has a steep learning curve, especially for developers coming from higher-level languages. Its unique concepts like ownership, borrowing, and lifetimes can be challenging to grasp initially.</li>
+              <li>Development speed: Due to Rust's strict compiler and safety checks, development might be slower compared to more dynamic languages like Python or JavaScript, especially during the initial stages of a project.</li>
+              <li>Ecosystem maturity: While Rust's ecosystem is growing rapidly, it may not be as mature as those of more established languages. You might find fewer libraries, frameworks, or tools for certain specialized tasks.</li>
+              <li>Team expertise: If your team is not familiar with Rust, there could be a significant ramp-up time and potential productivity loss during the learning phase.</li>
+              <li>Hiring challenges: Finding experienced Rust developers can be more difficult compared to developers proficient in more widely-used languages.</li>
+              <li>Compile times: Rust's compile times can be longer than those of other languages, which might impact development workflow and CI/CD pipelines.</li>
+              <li>Overkill for simple projects: If you're building a straightforward API that doesn't require high performance or low-level control, using Rust might be overengineering.</li>
+              <li>Interoperability: If you need to integrate with existing systems or libraries written in other languages, it might be more challenging with Rust compared to more widely-used languages.</li>
+              <li>Runtime performance vs. development speed trade-off: While Rust offers excellent runtime performance, the development process might be slower. For projects where rapid development is more critical than peak performance, other languages might be more suitable.</li>
+              <li>Community size: Although growing, the Rust community is smaller compared to more established languages, which might mean less community support and fewer resources.</li>
+            </ul>
+            <p>That being said, Rust also offers significant advantages for API development, such as excellent performance, strong safety guarantees, and efficient memory usage. If these benefits align with your project requirements and you're willing to invest time in learning and using Rust, it can be an excellent choice for building robust and efficient API servers.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Learn about a particular code file
+        </td>
+        <td>
+          <span class="mono">What does Window.vue do?</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>The <span class='mono'>Window.vue</span> file is a Vue.js component that provides a draggable and resizable window functionality. It allows you to create and manage windows within a Vue.js application. Here's a breakdown of what the component does:</p>
+            
+            <ul>
+              <li>Imports : It imports the necessary dependencies, including <span class='mono'>ref</span> from Vue and the <span class='mono'>useWindowStore</span> from a Pinia store called <span class='mono'>windows</span>.</li>
+              
+              <li>Props : It defines two props: <span class='mono'>id</span> and <span class='mono'>parameters</span>. The <span class='mono'>id</span> prop is likely used to identify the window, while the <span class='mono'>parameters</span> prop contains information about the window's position, size, and z-index.</li>
+              
+              <li>Dragging : The component implements drag and drop functionality for the window. When the user starts dragging the window, the <span class='mono'>dragStart</span> function is called, which saves the starting mouse cursor position. When the user stops dragging, the <span class='mono'>dragEnd</span> function is called, which calculates the new position of the window based on the mouse movement and updates the window's position accordingly. It also ensures that the window stays within the viewport boundaries.</li>
+              
+              <li>Window Surfacing : The <span class='mono'>windowClicked</span> function is called when the user clicks on the window, and it calls the <span class='mono'>surfaceWindow</span> action from the <span class='mono'>windowStore</span> to bring the clicked window to the front.</li>
+              
+              <li>Template : The template defines the structure of the window component. It includes a draggable div element that represents the window itself, with styles applied based on the <span class='mono'>parameters</span> prop. The window has a header area with a close button and a content area where you can pass content using slots.</li>
+              
+              <li>Styles : The component includes styles for the window, including the header area, content area, and the close button. It also includes styles for the dragging functionality, such as the <span class='mono'>hide-draggable</span> class, which is used to temporarily hide the window during dragging.</li>
+            </ul>
+            
+            <p>Overall, the <span class='mono'>Window.vue</span> component provides a reusable and customizable way to create draggable and resizable windows within a Vue.js application. It can be used in various scenarios where you need to display multiple windows or panels within the same application.</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="footnote">
+      <a href="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/q-in-IDE-chat.html">
+        <span class="gradient-text">Learn more about Q Developer chat</span>
+      </a>        
+    </div>
+  </div>
+  
+  <div class="container" style="margin-top: 3em;">
+    <div class="header">
+      <h1 class="gradient-text">@workspace <span class="subtitle">(Automatically use one or more indexed files to answer questions)</span></h1>
+    </div>
+    <table>
+      <tr>
+        <th>
+          <span class="gradient-text">Goal</span>
+        </th>
+        <th>
+          <span class="gradient-text">Example Prompt Technique</span>
+        </th>
+        <th>
+          <span class="gradient-text"><span style="white-space: nowrap">Example Output</span></span>
+        </th>
+      </tr>
+      <tr>
+        <td>Learn an unfamiliar codebase</td>
+        <td>
+          <span class="mono">What technologies are used in this @workspace?</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>Based on the code snippets provided, this project appears to use the following key technologies:</p>
+            <ul>
+              <li>Vue.js: This is a progressive JavaScript framework for building user interfaces. The code uses Vue 3 features, as evidenced by the use of the Composition API (e.g., <span class='mono'>defineProps</span>, <span class='mono'>defineEmits</span>, <span class='mono'>ref</span>, <span class='mono'>computed</span>) and <span class='mono'>&lt;script setup&gt;</span> syntax.</li>
+              <li>Pinia: This is the state management library being used, as seen in the imports like <span class='mono'>import { defineStore } from 'pinia'</span> and <span class='mono'>import { storeToRefs } from 'pinia'</span>.</li>
+              <li>WebSockets: The project seems to use WebSockets for real-time communication between the client and server, as indicated by the socket-related code in the <span class='mono'>socket.js</span> store.</li>
+              <li>Component-based architecture: The project is structured using Vue components (e.g., <span class='mono'>DetailedItem.vue</span>, <span class='mono'>MeWindow.vue</span>, <span class='mono'>Window.vue</span>).</li>
+              <li>CSS: For styling the components, as seen in the <span class='mono'>&lt;style&gt;</span> sections of the Vue files.</li>
+              <li>JavaScript (ES6+): The project uses modern JavaScript features like arrow functions, template literals, and destructuring.</li>
+              <li>Single File Components (SFC): The <span class='mono'>.vue</span> files combine template, script, and style in a single file, which is a Vue.js feature.</li>
+              <li>Reactive programming: The use of <span class='mono'>ref</span>, <span class='mono'>computed</span>, and Pinia stores indicates a reactive approach to managing and updating data.</li>
+              <li>Custom event handling: The code uses Vue's custom event system with <span class='mono'>$emit</span> and <span class='mono'>defineEmits</span>.</li>
+              <li>Drag and drop functionality: As seen in the <span class='mono'>DetailedItem.vue</span> component with <span class='mono'>draggable</span> attribute and drag event handlers.</li>
+            </ul>
+            <p>This appears to be a client-side application, likely part of a larger system that includes a server-side component (given the WebSocket communication). The application seems to be related to managing items, skills, and character attributes, possibly for a game or inventory management system.</p>
+          </div>  
+        </td>
+      </tr>
+      <tr>
+        <td>Double-check your overall code quality</td>
+        <td>
+          <span class="mono">What improvements should I make to the code in this @workspace? Be concise</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>Based on the Vue component code provided, here are some concise suggestions for improvement:</p>
+            <ul>
+              <li>Use destructuring to simplify props access: <span class='mono'>const { item } = props</span> instead of <span class='mono'>const item = props.item</span>.</li>
+              <li>Consider using <span class='mono'>v-bind</span> shorthand (:) consistently for attribute binding.</li>
+              <li>Utilize computed properties for <span class='mono'>styleHelper</span> instead of a method for better performance.</li>
+              <li>Use template literals for string interpolation in the template, e.g., <span class='mono'>`Weight: ${item.weight}`</span>.</li>
+              <li>Consider using <span class='mono'>v-for</span> to render item details, reducing repetitive template code.</li>
+              <li>Implement proper error handling in <span class='mono'>dragEnd</span> function.</li>
+              <li>Use <span class='mono'>emits</span> option to declare emitted events for better documentation.</li>
+              <li>Consider using CSS variables for repeated values like colors and border widths.</li>
+              <li>Use more specific selectors in CSS to avoid potential conflicts.</li>
+              <li>Add proper accessibility attributes for draggable elements.</li>
+            </ul>
+            <p>These changes can make your code more efficient, maintainable, and aligned with Vue.js best practices.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Understand the flow of logic for a feature
+        </td>
+        <td>
+          <span class="mono">How does window surfacing work in this @workspace</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>Based on the code provided, window surfacing in this application is handled primarily through the <span class='mono'>useWindowStore</span> and the <span class='mono'>Window.vue</span> component. Let's break down how it works:</p>
+            
+            <ul>
+              <li>Z-Index Management: In the <span class='mono'>windows.js</span> store file, there's a <span class='mono'>maxZIndex</span> variable that keeps track of the highest z-index. This is used to ensure that the most recently interacted window appears on top.</li>
+              
+              <li>Surfacing Function: The <span class='mono'>windowStore.surfaceWindow(props.id)</span> function is called in two scenarios within the <span class='mono'>Window.vue</span> component:
+                <ul>
+                  <li>When dragging ends:
+                    <span class='mono'>
+                      function dragEnd(e) {
+                        windowStore.surfaceWindow(props.id);
+                        // ... other code
+                      }
+                    </span>
+                  </li>
+                  <li>When the window is clicked:
+                    <span class='mono'>
+                      function windowClicked() {
+                        windowStore.surfaceWindow(props.id);
+                      }
+                    </span>
+                  </li>
+                </ul>
+              </li>
+              
+              <li>Z-Index Application: In the template of <span class='mono'>Window.vue</span>, the z-index is applied dynamically:
+                <span class='mono'>
+                  &lt;div ... :style="{ ..., zIndex: props.parameters.zIndex }" ...&gt;
+                </span>
+              </li>
+              
+              <li>Store Implementation: Although not fully visible in the provided code snippets, the <span class='mono'>surfaceWindow</span> function in the <span class='mono'>useWindowStore</span> likely updates the z-index of the specified window to be higher than all others, effectively bringing it to the front.</li>
+              
+              <li>Reactive Updates: Since the store is using Vue's reactivity system (with <span class='mono'>ref</span> and <span class='mono'>defineStore</span> from Pinia), any changes to the window's z-index in the store will automatically update the component's rendering.</li>
+            </ul>
+            
+            <p>In summary, window surfacing works by:</p>
+            
+            <ol>
+              <li>Detecting user interactions (clicks or drag ends) on a window.</li>
+              <li>Calling the <span class='mono'>surfaceWindow</span> function in the store with the window's ID.</li>
+              <li>Updating the z-index of that window in the store to be higher than all others.</li>
+              <li>Reactively applying the new z-index to the window's DOM element.</li>
+            </ol>
+            
+            <p>This system ensures that the most recently interacted window always appears on top of others, providing a natural and expected behavior for overlapping windows in the user interface.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Assume a custom persona, use it for accomplishing the task</td>
+        <td>
+          Create file <span class="mono">.q/NODE_JS:</span>
+          <div class="mono-block">
+            <pre class="wrap">
+NODE_JS
+
+Only when I explicitly ask for code, follow this guidance:
+
+- Only provide Node.js JavaScript code, unless I explicitly ask for another language
+- I always use AWS SDK v3
+- Unless otherwise requested, only provide the piece of code without any further explanation and commentary
+- I am an expert in Node.js and I did not need a walk through
+            </pre>
+          </div>
+          <br />
+          Prompt: <br />
+          <span class="mono">@workspace NODE_JS How do I upload a local file to S3?</span>
+        </td>
+        <td>
+          <div class="message">
+            <p>Here's a Node.js code snippet using AWS SDK v3 to upload a local file to S3:</p>
+            <pre class="wrap">
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { readFile } from "fs/promises";
+
+const s3Client = new S3Client({ region: "us-west-2" });
+
+async function uploadFileToS3(bucketName, key, filePath) {
+  const fileContent = await readFile(filePath);
+  
+  const params = {
+    Bucket: bucketName,
+    Key: key,
+    Body: fileContent,
+  };
+  
+  try {
+    const command = new PutObjectCommand(params);
+    await s3Client.send(command);
+    console.log(`File uploaded successfully to ${bucketName}/${key}`);
+  } catch (error) {
+    console.error("Error uploading file:", error);
+  }
+}
+
+// Usage
+uploadFileToS3("your-bucket-name", "path/to/object-key", "/path/to/local/file");
+            </pre>
+          </div>
+          <br />
+          <a class="gradient-button" href="https://it20.info/2024/10/diy-personalization-for-amazon-q-developer/">
+            Read more
+          </a>
+        </td>
+      </tr>
+    </table>
+    <div class="footnote">
+      <a href="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/workspace-context.html">
+        <span class="gradient-text">Learn more about @workspace</span>
+      </a>        
+    </div>
+  </div>
+  
+  <div class="container" style="margin-top: 3em;">
+    <div class="header">
+      <h1 class="gradient-text">/dev <span class="subtitle">(Generate larger code diffs for more complex tasks)</span></h1>
+    </div>
+    <table>
+      <tr>
+        <th>
+          <span class="gradient-text">Goal</span>
+        </th>
+        <th>
+          <span class="gradient-text">Example Prompt Technique</span>
+        </th>
+        <th>
+          <span class="gradient-text"><span style="white-space: nowrap">Example Result</span></span>
+        </th>
+      </tr>
+      <tr>
+        <td>Refactor an entire application</td>
+        <td>
+          <span class="mono">
+            /dev Transform this project using the 12 factor app approach and also generate a step-by-step instruction in a README.md file after refactoring is complete.
+          </span>
+        </td>
+        <td>
+          <a class='gradient-button' href="https://community.aws/content/2ijY3b6Prx7nWFfcSs16OFUBJmi/refactoring-your-python-app-with-12-factor-methodology">
+            Read more
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Add observability to an application</td>
+        <td>
+          <span class="mono">
+            /dev Add support for OpenTelemetry. Create traces for each function in the microservice, as well as the nested functions invoked.
+          </span>
+        </td>
+        <td>
+          <a class='gradient-button' href="https://community.aws/content/2gZ6lE5AnoFwgFVIzgNwRwIg3WJ/work-smarter-not-harder-with-observability-using-amazon-q-developer">
+            Read more
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Break up a monolith application, update infrastructure as code
+        </td>
+        <td>
+<pre class="mono">
+/dev Refactor the backend logic to improve clarity and scalability:
+
+- Split the logic into separate Lambdas, keeping the
+code clean and well-documented.
+- Share common functionality across Lambda functions
+to avoid duplication.
+- Keep permissions locked down.
+- Update the Infrastructure as Code to support the
+changes. 
+</pre>
+        </td>
+        <td>
+          <a class='gradient-button' href="https://www.youtube.com/watch?v=U0ZSldhbWs8">
+            Watch video
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Improve the code documentation
+        </td>
+        <td>
+<span class="mono">
+/dev Add JSDoc style comments to all functions in this project. Also add a README.md explaining the project structure and usage.
+</span>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Find missing test cases, add unit tests
+        </td>
+        <td>
+<span class="mono">
+/dev Explore this project and find functions that are missing important test cases. Add unit tests to cover any serious gaps.
+</span>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Containerize an existing application
+        </td>
+        <td>
+<span class="mono">
+/dev Add a Dockerfile and a script for building and running the application as a container
+</span>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+      <tr>
+        <td>Guide a complex refactor</td>
+        <td>
+          Code:
+          <div class="mono-block">
+            <pre>
+/* TODO: Detect network failures and retry up to three times with exponential backoff */
+function dispatch() {
+  
+}
+
+/* TODO: Make sure we properly break large payloads into 1MB chunks */
+function dispatchData() {
+  
+}
+
+/* TODO: Ensure there is an 10MB upper limit on payload size */
+function acceptInboundData() {
+  
+}
+            </pre>
+          </div>
+          <br />
+          Prompt: <br />
+          <span class="mono">/dev Implement all TODO comments in this project</span>
+        </td>
+        <td>
+        </td>
+      </tr>
+    </table>
+    <div class="footnote">
+      <a href="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/software-dev.html">
+        <span class="gradient-text">Learn more about /dev</span>
+      </a>        
+    </div>
+  </div>
+</body>
+</html>
